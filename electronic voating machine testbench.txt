@@ -1,0 +1,149 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.std_logic_unsigned.all;
+USE ieee.numeric_std.ALL;
+
+ENTITY evmz2_tb_vhd IS
+END evmz2_tb_vhd;
+
+ARCHITECTURE behavior OF evmz2_tb_vhd IS 
+
+	-- Component Declaration for the Unit Under Test (UUT)
+	COMPONENT evmz2_vhd
+	PORT(
+		clk : IN std_logic;
+		reset : IN std_logic;
+		party1 : IN std_logic;
+		party2 : IN std_logic;
+		party3 : IN std_logic;
+		nota : IN std_logic;          
+		count1_op : OUT std_logic_vector(4 downto 0);
+		count2_op : OUT std_logic_vector(4 downto 0);
+		count3_op : OUT std_logic_vector(4 downto 0);
+		nota_op : OUT std_logic_vector(4 downto 0);
+		p1: out std_logic:= '0';
+		 p2: out std_logic:= '0';
+		 p3: out std_logic:= '0';
+	   p4: out std_logic:= '0'		
+		);
+	END COMPONENT;
+
+	--Inputs
+	SIGNAL clk :  std_logic := '0';
+	SIGNAL reset :  std_logic := '0';
+	SIGNAL party1 :  std_logic := '0';
+	SIGNAL party2 :  std_logic := '0';
+	SIGNAL party3 :  std_logic := '0';
+	SIGNAL nota :  std_logic := '0';
+
+	--Outputs
+	SIGNAL count1_op :  std_logic_vector(4 downto 0);
+	SIGNAL count2_op :  std_logic_vector(4 downto 0);
+	SIGNAL count3_op :  std_logic_vector(4 downto 0);
+	SIGNAL nota_op :  std_logic_vector(4 downto 0);
+	
+
+BEGIN
+
+	-- Instantiate the Unit Under Test (UUT)
+	uut: evmz2_vhd PORT MAP(
+		clk => clk,
+		reset => reset,
+		party1 => party1,
+		party2 => party2,
+		party3 => party3,
+		nota => nota,
+	
+		count1_op => count1_op,
+		count2_op => count2_op,
+		count3_op => count3_op,
+		nota_op => nota_op
+	);
+
+	clock : process
+begin
+clk<='1';wait for 10 ns;
+clk<='0'; wait for 10 ns;
+
+end process;
+	tb : PROCESS
+	BEGIN
+	reset<='1'; wait for 10 ns;
+reset<='0'; wait for 10 ns;
+party1<='0'; wait for 20 ns;
+party2<='0'; wait for 20 ns;
+party3<='0'; wait for 20 ns;
+nota<='0'; wait for 20 ns;
+party1<='1'; wait for 10 ns;
+party1<='0'; wait for 10 ns;
+party1<='1'; wait for 10 ns;
+party1<='0'; wait for 10 ns;
+party1<='1'; wait for 10 ns;
+party1<='0'; wait for 10 ns;
+party1<='1'; wait for 10 ns;
+party1<='0'; wait for 10 ns;
+party1<='1'; wait for 10 ns;
+party1<='0'; wait for 10 ns;
+party2<='1'; wait for 10 ns;
+party2<='0'; wait for 10 ns;
+party2<='1'; wait for 10 ns;
+party2<='0'; wait for 10 ns;
+party2<='1'; wait for 10 ns;
+party2<='0'; wait for 10 ns;
+party2<='1'; wait for 10 ns;
+party2<='0'; wait for 10 ns;
+party2<='1'; wait for 10 ns;
+party2<='0'; wait for 10 ns;
+party2<='1'; wait for 10 ns;
+party2<='0'; wait for 10 ns;
+party3<='1'; wait for 10 ns;
+party3<='0'; wait for 10 ns;
+party3<='1'; wait for 10 ns;
+party3<='0'; wait for 10 ns;
+party3<='1'; wait for 10 ns;
+party3<='0'; wait for 10 ns;
+nota<='1'; wait for 10 ns;
+nota<='0'; wait for 90 ns;
+reset<='1'; wait for 10 ns;
+reset<='0'; wait for 10 ns;
+party1<='1'; wait for 10 ns;
+party1<='0'; wait for 10 ns;
+party1<='1'; wait for 10 ns;
+party1<='0'; wait for 10 ns;
+party1<='1'; wait for 10 ns;
+party1<='0'; wait for 10 ns;
+party1<='1'; wait for 10 ns;
+party1<='0'; wait for 10 ns;
+party1<='1'; wait for 10 ns;
+party1<='0'; wait for 10 ns;
+party2<='1'; wait for 10 ns;
+party2<='0'; wait for 10 ns;
+party2<='1'; wait for 10 ns;
+party2<='0'; wait for 10 ns;
+party2<='1'; wait for 10 ns;
+party2<='0'; wait for 10 ns;
+party2<='1'; wait for 10 ns;
+party2<='0'; wait for 10 ns;
+party3<='1'; wait for 10 ns;
+party3<='0'; wait for 10 ns;
+party3<='1'; wait for 10 ns;
+party3<='0'; wait for 10 ns;
+party3<='1'; wait for 10 ns;
+party3<='0'; wait for 10 ns;
+party3<='1'; wait for 10 ns;
+party3<='0'; wait for 10 ns;
+party3<='1'; wait for 10 ns;
+party3<='0'; wait for 10 ns;
+party3<='1'; wait for 10 ns;
+party3<='0'; wait for 10 ns;
+nota<='1'; wait for 10 ns;
+nota<='0'; wait for 90 ns;
+
+
+
+
+
+
+	END PROCESS;
+
+END;
